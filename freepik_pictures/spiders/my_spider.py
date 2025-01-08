@@ -9,6 +9,7 @@ import psutil
 import speedtest
 import sys
 from sentence_transformers import SentenceTransformer, util
+import urllib.parse
 
 # Increase CSV field size limit
 maxInt = sys.maxsize
@@ -21,6 +22,18 @@ while True:
 
 class MySpider(scrapy.Spider):
     name = 'my_spider'
+    
+    custom_settings = {
+        'CONCURRENT_REQUESTS': 1,  # Reduce concurrent requests
+        'DOWNLOAD_DELAY': 2,      # Add delay between requests
+        'RANDOMIZE_DOWNLOAD_DELAY': True,
+        'RETRY_TIMES': 3,
+        'RETRY_HTTP_CODES': [403, 429, 500, 502, 503, 504],
+        'DOWNLOADER_MIDDLEWARES': {
+            'scrapy.downloadermiddlewares.retry.RetryMiddleware': 90,
+            'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110,
+        }
+    }
 
     def __init__(self, csv_file=None, download_ir=False, *args, **kwargs):
         super(MySpider, self).__init__(*args, **kwargs)
@@ -166,66 +179,68 @@ class MySpider(scrapy.Spider):
         scrapy_logger.addHandler(other_handler)
 
     def start_requests(self):
-        # Read all rows at once and group them for batch processing
-        with open(self.csv_file, mode='r') as file:
-            csv_reader = csv.DictReader(file)
-            rows = [row for row in csv_reader 
-                   if row.get('Topic') and row['Topic'].strip() and  # Only include rows with non-empty topics
-                   (not row.get('Scraped') or row['Scraped'] != 'Yes')]
-
-        self.total_topics = len(rows)
-        self.completed_topics = 0
-        self.logger.info(f"Starting to process {self.total_topics} topics")
-
-        if self.total_topics == 0:
-            self.logger.warning("No topics to process!")
-            return
-
-        # Process in batches
-        headers = {
-            'authority': 'www.freepik.com',
+        # Add proper headers
+        self.headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+            'Accept': 'application/json, text/plain, */*',
+            'Accept-Language': 'en-US,en;q=0.9',
+            'Referer': 'https://www.freepik.com/',
+            'Origin': 'https://www.freepik.com',
+            'Connection': 'keep-alive',
+            'Cache-Control': 'no-cache',
+            'Pragma': 'no-cache',
+            'DNT': '1',
+            'Sec-Fetch-Dest': 'empty',
+            'Sec-Fetch-Mode': 'cors',
+            'Sec-Fetch-Site': 'same-origin',
         }
 
-        for i in range(0, len(rows), self.batch_size):
-            batch = rows[i:i + self.batch_size]
-            for row in batch:
-                topic = row['Topic'].strip()
-                if topic and topic not in self.processed_topics:
-                    self.processed_topics.add(topic)
-                    print("--------------------------------")
-                    print(f"Processing topic {self.completed_topics + 1}/{self.total_topics}: {topic}")
-                    print("--------------------------------")
-                    query = "+".join(topic.lower().split())
-                    api_url = f"https://www.freepik.com/api/regular/search?filters[ai-generated][only]=1&filters[content_type]=photo&locale=en&term={query}"
+        # Add cookies if you have them
+        self.cookies = {
+            # Add any required cookies here
+        }
 
+        with open(self.csv_file, mode='r') as file:
+            csv_reader = csv.DictReader(file)
+            for row in csv_reader:
+                if row.get('Topic') and not row.get('Scraped') == 'Yes':
                     yield scrapy.Request(
-                        url=api_url,
-                        callback=self.parse,
-                        meta={'row': row, 'topic': topic},
-                        headers=headers,
+                        url=self.get_search_url(row['Topic']),
+                        callback=self.parse_search_results,
+                        headers=self.headers,
                         cookies=self.cookies,
+                        meta={
+                            'topic': row['Topic'],
+                            'row': row,
+                            'dont_retry': False,
+                            'download_timeout': 30
+                        },
                         dont_filter=True,
                         errback=self.handle_error
                     )
+                    # Add delay between requests
+                    time.sleep(2)
 
     def handle_error(self, failure):
-        """Handle request errors"""
+        """Handle request failures"""
         request = failure.request
-        topic = request.meta['topic']
-        row = request.meta['row']
+        topic = request.meta.get('topic', '')
+        self.logger.error(f'Request failed for topic "{topic}": {failure.value}')
         
-        if failure.check(scrapy.exceptions.IgnoreRequest):
-            error_msg = "Request ignored"
-        else:
-            error_msg = str(failure.value)
+        # Update CSV to mark as failed
+        row = request.meta.get('row', {})
+        self.update_csv_with_image_path(row, '', 'Failed')
 
-        self.logger.error(f"Failed to process topic '{topic}': {error_msg}")
-        self.update_csv_with_image_path(row, '', 'Error')
-        
-        # Increment counter even on error
-        self.completed_topics += 1
-        if self.completed_topics >= self.total_topics:
-            self.crawler.engine.close_spider(self, 'All topics completed')
+    def get_search_url(self, topic):
+        """Create search URL with proper encoding"""
+        base_url = 'https://www.freepik.com/api/regular/search'
+        params = {
+            'filters[ai-generated][only]': 1,
+            'filters[content_type]': 'photo',
+            'locale': 'en',
+            'term': topic.strip()
+        }
+        return f"{base_url}?{urllib.parse.urlencode(params)}"
 
     def parse(self, response):
         topic = response.meta['topic']
@@ -430,3 +445,35 @@ class MySpider(scrapy.Spider):
         if total_requests % 100 == 0 or (total_requests > 10 and self.success_count / total_requests < 0.7):
             new_settings = self.adjust_scrapy_settings()
             self.crawler.settings.update(new_settings)
+
+    def parse_search_results(self, response):
+        topic = response.meta['topic']
+        row = response.meta['row']
+
+        try:
+            # Check if response is valid
+            if response.status == 403:
+                self.logger.error(f"Access denied for topic '{topic}'. Might need authentication.")
+                self.update_csv_with_image_path(row, '', 'Auth Required')
+                return
+            
+            # Parse JSON response
+            try:
+                data = json.loads(response.text)
+            except json.JSONDecodeError:
+                self.logger.error(f"Invalid JSON response for topic '{topic}'")
+                self.update_csv_with_image_path(row, '', 'Invalid Response')
+                return
+
+            # Process results
+            if not data.get('data'):
+                self.logger.warning(f"No results found for topic '{topic}'")
+                self.update_csv_with_image_path(row, '', 'No Results')
+                return
+
+            # Continue with your existing processing logic
+            # ...
+
+        except Exception as e:
+            self.logger.error(f"Error processing topic '{topic}': {str(e)}")
+            self.update_csv_with_image_path(row, '', 'Error')
