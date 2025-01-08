@@ -7,7 +7,17 @@ import logging
 import requests
 import psutil
 import speedtest
+import sys
 from sentence_transformers import SentenceTransformer, util
+
+# Increase CSV field size limit
+maxInt = sys.maxsize
+while True:
+    try:
+        csv.field_size_limit(maxInt)
+        break
+    except OverflowError:
+        maxInt = int(maxInt/2)
 
 class MySpider(scrapy.Spider):
     name = 'my_spider'
