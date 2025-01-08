@@ -2,154 +2,102 @@ import scrapy
 import os
 import csv
 import time
-import json
 import logging
 import requests
 import psutil
 import speedtest
-import sys
 from sentence_transformers import SentenceTransformer, util
-import urllib.parse
-
-# Increase CSV field size limit
-maxInt = sys.maxsize
-while True:
-    try:
-        csv.field_size_limit(maxInt)
-        break
-    except OverflowError:
-        maxInt = int(maxInt/2)
 
 class MySpider(scrapy.Spider):
     name = 'my_spider'
-    
-    custom_settings = {
-        'CONCURRENT_REQUESTS': 1,  # Reduce concurrent requests
-        'DOWNLOAD_DELAY': 2,      # Add delay between requests
-        'RANDOMIZE_DOWNLOAD_DELAY': True,
-        'RETRY_TIMES': 3,
-        'RETRY_HTTP_CODES': [403, 429, 500, 502, 503, 504],
-        'DOWNLOADER_MIDDLEWARES': {
-            'scrapy.downloadermiddlewares.retry.RetryMiddleware': 90,
-            'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110,
-        }
-    }
 
-    def __init__(self, csv_file=None, download_ir=False, *args, **kwargs):
+    def __init__(self, csv_file=None, download_ir='false', max_retries=3, *args, **kwargs):
         super(MySpider, self).__init__(*args, **kwargs)
 
         if not csv_file or not os.path.exists(csv_file):
             raise ValueError("You must provide a valid CSV file path")
 
         self.csv_file = csv_file
-        self.download_ir = str(download_ir).lower() == 'true'
-        
+        self.download_ir = download_ir.lower() == 'true'
+        self.max_retries = int(max_retries)
+        self.retry_topics = {}  # Track retry attempts per topic
+        self.logger.info(f"IR Download setting: {self.download_ir}")
+        self.logger.info(f"Max retries per topic: {self.max_retries}")
+
         # Load the sentence transformer model
         self.model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
-        
-        # Initialize performance monitoring
-        self.last_speed_check = 0
-        self.speed_check_interval = 300  # Check every 5 minutes
-        self.success_count = 0
-        self.fail_count = 0
-        self.current_delay = 0.1
 
-        # Initialize required attributes
-        self.batch_size = 100  # Process 10 items at a time
-        self.processed_topics = set()  # Keep track of processed topics
-        self.total_topics = 0
-        self.completed_topics = 0
-        self.cookies = {}  # Initialize empty cookies dict
-        
-        # Configure logging
-        self.configure_logging()
-        
-        # Initial settings adjustment
+        # Dynamically adjust Scrapy settings based on system resources
         self.custom_settings = self.adjust_scrapy_settings()
 
+        # Configure logging
+        self.configure_logging()
+
+        # Add headers and cookies as class attributes
+        self.headers = {
+            'authority': 'www.freepik.com',
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'accept-language': 'en-US,en;q=0.9,el;q=0.8,ur;q=0.7,sl;q=0.6',
+            'cache-control': 'no-cache',
+            'dnt': '1',
+            'pragma': 'no-cache',
+            'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"macOS"',
+            'sec-fetch-dest': 'document',
+            'sec-fetch-mode': 'navigate',
+            'sec-fetch-site': 'none',
+            'sec-fetch-user': '?1',
+            'upgrade-insecure-requests': '1',
+            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
+        }
+        
+        self.cookies = {
+            '_cs_ex': '1709818470',
+            '_cs_c': '0',
+            'usprivacy': '1---',
+            'OptanonAlertBoxClosed': '2024-09-21T10:39:20.541Z',
+            'OneTrustWPCCPAGoogleOptOut': 'false',
+            '_au_1d': 'AU1D-0100-001709006278-QV0BJASJ-L0AE',
+            '_hjSessionUser_1331604': 'eyJpZCI6IjJhZjliM2IwLWQ5ZDMtNWQwOC1iYzVjLTU2ZWM2ZWQyNzY3ZCIsImNyZWF0ZWQiOjE3MjY5MTUxNjExMTUsImV4aXN0aW5nIjp0cnVlfQ==',
+            'cto_optout': '1',
+            'GRID': '71985952',
+            'premiumGen': 'B',
+            'EXPCH': 'true',
+            'new_regular_detail_test': 'A',
+            'TUNES_IN_VIDEO': '1',
+            'premiumQueue': 'A',
+            'skip_expch': 'true'
+        }
+
     def adjust_scrapy_settings(self):
-        """Dynamically adjust settings based on system and network performance"""
+        """Dynamically adjust Scrapy settings based on system performance."""
+        # Get the number of CPU cores
+        cpu_cores = psutil.cpu_count(logical=False)  # Get physical cores
+
+        # Get network speed (Download speed in Mbps)
         try:
-            # Get CPU and memory info
-            cpu_cores = psutil.cpu_count(logical=False)
-            memory = psutil.virtual_memory()
-            memory_available_gb = memory.available / (1024 * 1024 * 1024)
-            cpu_percent = psutil.cpu_percent(interval=1)
-
-            # Check network speed if enough time has passed
-            current_time = time.time()
-            if current_time - self.last_speed_check > self.speed_check_interval:
-                try:
-                    st = speedtest.Speedtest()
-                    st.get_best_server()
-                    download_speed = st.download() / 1_000_000  # Mbps
-                    self.last_speed_check = current_time
-                except Exception as e:
-                    self.logger.warning(f"Network speed check failed: {str(e)}")
-                    download_speed = 50  # Default fallback
-            else:
-                download_speed = 50  # Use default between checks
-
-            # Calculate success rate
-            total_requests = self.success_count + self.fail_count
-            success_rate = self.success_count / total_requests if total_requests > 0 else 1
-
-            # Adjust concurrent requests based on resources and success rate
-            base_concurrent = min(int(cpu_cores * 8), int(download_speed // 5))
-            adjusted_concurrent = int(base_concurrent * success_rate)
-            
-            # Adjust delay based on CPU usage and success rate
-            if cpu_percent > 80:
-                self.current_delay = min(self.current_delay * 1.5, 1.0)
-            elif cpu_percent < 50 and success_rate > 0.9:
-                self.current_delay = max(self.current_delay * 0.8, 0.1)
-
-            # Log current performance metrics
-            self.logger.info(f"""
-            Performance Metrics:
-            - CPU Usage: {cpu_percent}%
-            - Memory Available: {memory_available_gb:.2f}GB
-            - Download Speed: {download_speed:.2f}Mbps
-            - Success Rate: {success_rate:.2%}
-            - Concurrent Requests: {adjusted_concurrent}
-            - Request Delay: {self.current_delay:.3f}s
-            """)
-
-            return {
-                "CONCURRENT_REQUESTS": adjusted_concurrent,
-                "CONCURRENT_REQUESTS_PER_DOMAIN": adjusted_concurrent,
-                "DOWNLOAD_TIMEOUT": min(30, max(15, int(30 / success_rate))),
-                "RETRY_ENABLED": True,
-                "RETRY_TIMES": min(5, max(2, int(5 * (1 - success_rate)))),
-                "DOWNLOAD_DELAY": self.current_delay,
-                "COOKIES_ENABLED": True,
-                "REACTOR_THREADPOOL_MAXSIZE": cpu_cores * 2,
-                "LOG_LEVEL": 'INFO',
-                "CONCURRENT_ITEMS": adjusted_concurrent * 2,
-                "DEPTH_PRIORITY": 1,
-                "SCHEDULER_DISK_QUEUE": 'scrapy.squeues.PickleLifoDiskQueue',
-                "SCHEDULER_MEMORY_QUEUE": 'scrapy.squeues.LifoMemoryQueue',
-                "JOBDIR": 'jobs',  # Enable job persistence
-            }
-
+            st = speedtest.Speedtest()
+            st.get_best_server()
+            download_speed = st.download() / 1_000_000  # Convert to Mbps
         except Exception as e:
-            self.logger.error(f"Error adjusting scrapy settings: {str(e)}")
-            return {
-                "CONCURRENT_REQUESTS": 10,
-                "CONCURRENT_REQUESTS_PER_DOMAIN": 10,
-                "DOWNLOAD_TIMEOUT": 15,
-                "RETRY_ENABLED": True,
-                "RETRY_TIMES": 2,
-                "DOWNLOAD_DELAY": 0.1,
-                "COOKIES_ENABLED": True,
-                "REACTOR_THREADPOOL_MAXSIZE": 20,
-                "LOG_LEVEL": 'INFO',
-                "CONCURRENT_ITEMS": 20,
-                "DEPTH_PRIORITY": 1,
-                "SCHEDULER_DISK_QUEUE": 'scrapy.squeues.PickleLifoDiskQueue',
-                "SCHEDULER_MEMORY_QUEUE": 'scrapy.squeues.LifoMemoryQueue',
-                "JOBDIR": 'jobs',
-            }
+            self.logger.warning(f"Network speed check failed: {str(e)}")
+            download_speed = 50  # Fallback to a reasonable default
+
+        # Set CONCURRENT_REQUESTS based on CPU cores and network speed
+        concurrent_requests = min(int(cpu_cores * 4), int(download_speed // 10))
+
+        # Adjust other settings based on network speed (more network = lower timeout)
+        download_timeout = 30 if download_speed > 100 else 60
+
+        return {
+            "CONCURRENT_REQUESTS": concurrent_requests,  # Adjust based on system
+            "DOWNLOAD_TIMEOUT": download_timeout,  # Adjust based on network speed
+            "RETRY_ENABLED": False,  # Disable retry to avoid delays
+            "DOWNLOAD_FAIL_ON_DATALOSS": False,
+            "RETRY_TIMES": 0,
+            "RETRY_HTTP_CODES": []
+        }
 
     def configure_logging(self):
         # Create a custom logger for timing messages
@@ -179,126 +127,168 @@ class MySpider(scrapy.Spider):
         scrapy_logger.addHandler(other_handler)
 
     def start_requests(self):
-        # Add proper headers
-        self.headers = {
-        }
+        unscraped_topics = self.get_unscraped_topics()
+        
+        if not unscraped_topics:
+            self.logger.info("All topics have been scraped successfully!")
+            return
 
-        # Add cookies if you have them
-        self.cookies = {
-            # Add any required cookies here
-        }
+        self.logger.info(f"Found {len(unscraped_topics)} unscraped topics to process")
+        
+        for row in unscraped_topics:
+            topic = row['Topic']
+            query = "+".join(topic.lower().split())
+            api_url = f"https://www.freepik.com/api/regular/search?filters[ai-generated][only]=1&filters[content_type]=photo&locale=en&term={query}"
 
-        with open(self.csv_file, mode='r') as file:
-            csv_reader = csv.DictReader(file)
-            for row in csv_reader:
-                if row.get('Topic') and not row.get('Scraped') == 'Yes':
-                    yield scrapy.Request(
-                        url=self.get_search_url(row['Topic']),
-                        callback=self.parse_search_results,
-                        headers=self.headers,
-                        cookies=self.cookies,
-                        meta={
-                            'topic': row['Topic'],
-                            'row': row,
-                            'dont_retry': False,
-                            'download_timeout': 30
-                        },
-                        dont_filter=True,
-                        errback=self.handle_error
-                    )
-                    # Add delay between requests
-                    time.sleep(2)
+            # Initialize retry count for this topic
+            if topic not in self.retry_topics:
+                self.retry_topics[topic] = 0
+
+            self.logger.info(f"Processing topic: {topic} (Attempt {self.retry_topics[topic] + 1})")
+            yield scrapy.Request(
+                url=api_url,
+                callback=self.parse,
+                meta={
+                    'row': row, 
+                    'topic': topic,
+                    'dont_retry': False,
+                    'max_retry_times': 3
+                },
+                headers=self.headers,
+                cookies=self.cookies,
+                dont_filter=True,
+                errback=self.handle_error,
+                priority=10  # Higher priority for initial requests
+            )
 
     def handle_error(self, failure):
-        """Handle request failures"""
-        request = failure.request
-        topic = request.meta.get('topic', '')
-        self.logger.error(f'Request failed for topic "{topic}": {failure.value}')
+        """Handle any errors during request"""
+        row = failure.request.meta.get('row')
+        topic = failure.request.meta.get('topic')
         
-        # Update CSV to mark as failed
-        row = request.meta.get('row', {})
-        self.update_csv_with_image_path(row, '', 'Failed')
+        if topic in self.retry_topics:
+            self.retry_topics[topic] += 1
+            
+            if self.retry_topics[topic] < self.max_retries:
+                self.logger.warning(f"Retrying topic '{topic}' (Attempt {self.retry_topics[topic] + 1})")
+                
+                # Create a new request with the same parameters
+                query = "+".join(topic.lower().split())
+                api_url = f"https://www.freepik.com/api/regular/search?filters[ai-generated][only]=1&filters[content_type]=photo&locale=en&term={query}"
+                
+                return scrapy.Request(
+                    url=api_url,
+                    callback=self.parse,
+                    meta={
+                        'row': row, 
+                        'topic': topic,
+                        'dont_retry': False,
+                        'max_retry_times': 3
+                    },
+                    headers=self.headers,
+                    cookies=self.cookies,
+                    dont_filter=True,
+                    errback=self.handle_error,
+                    priority=20  # Higher priority for retry requests
+                )
+        
+        self.logger.error(f"Failed to process topic '{topic}' after {self.max_retries} attempts: {str(failure.value)}")
+        if row:
+            self.update_csv_with_image_path(row, '', 'No')
 
-    def get_search_url(self, topic):
-        """Create search URL with proper encoding"""
-        base_url = 'https://www.freepik.com/api/regular/search'
-        params = {
-            'filters[ai-generated][only]': 1,
-            'filters[content_type]': 'photo',
-            'locale': 'en',
-            'term': topic.strip()
-        }
-        return f"{base_url}?{urllib.parse.urlencode(params)}"
+    def get_unscraped_topics(self):
+        unscraped = []
+        try:
+            with open(self.csv_file, mode='r') as file:
+                csv_reader = csv.DictReader(file)
+                for row in csv_reader:
+                    # Check multiple conditions for considering a topic unscraped:
+                    # 1. No 'Scraped' field or not 'Yes'
+                    # 2. No 'Image Path' field
+                    # 3. Has 'Image Path' but file doesn't exist
+                    # 4. Has 'Image Path' but it's empty
+                    if (not row.get('Scraped') or row['Scraped'].lower() != 'yes' or
+                        not row.get('Image Path') or
+                        not row['Image Path'].strip() or
+                        (row.get('Image Path') and not os.path.exists(row['Image Path']))):
+                        unscraped.append(row)
+                        self.logger.debug(f"Topic '{row['Topic']}' needs processing because: "
+                                       f"Scraped={row.get('Scraped')}, "
+                                       f"Image Path={row.get('Image Path')}, "
+                                       f"File exists={os.path.exists(row.get('Image Path', ''))}")
+        except Exception as e:
+            self.logger.error(f"Error reading CSV file: {str(e)}")
+            raise
+        return unscraped
 
     def parse(self, response):
         topic = response.meta['topic']
-        row = response.meta['row']
-
-        # Handle HTTP errors
-        if response.status != 200:
-            self.logger.error(f"HTTP {response.status} for topic '{topic}'")
-            self.update_csv_with_image_path(row, '', f'Error: HTTP {response.status}')
-            self.completed_topics += 1
-            return
+        self.logger.info(f"Processing API response for topic '{topic}'")
 
         try:
             data = response.json()
-        except json.JSONDecodeError:
-            self.logger.error(f"Invalid JSON response for topic '{topic}'")
-            self.update_csv_with_image_path(row, '', 'Error: Invalid JSON')
-            self.completed_topics += 1
-            return
+            if 'items' not in data or len(data['items']) == 0:
+                self.logger.warning(f"No items found for topic '{topic}'")
+                # Treat this as an error and retry
+                raise ValueError(f"No items found for topic '{topic}'")
 
-        if 'items' not in data or len(data['items']) == 0:
-            self.logger.warning(f"No items found for topic '{topic}'")
-            self.update_csv_with_image_path(row, '', 'No results')
-            self.completed_topics += 1
-            return
+            # Extract image names and URLs from API response
+            image_urls = []
+            image_descriptions = []
+            for item in data['items']:
+                img_url = item['preview']['url']
+                image_urls.append(img_url)
+                image_descriptions.append(item['name'])  # Image description/name for relevance checking
 
-        # Extract only necessary information
-        images = [(item['preview']['url'], item['name']) for item in data['items']]
-        
-        if not images:
-            return
+            # Check relevance of images
+            yield from self.check_relevance_and_download_best_image(image_urls, image_descriptions, topic, response.meta['row'])
 
-        # Process relevance check
-        yield from self.process_images(images, response.meta['topic'], response.meta['row'])
+        except Exception as e:
+            self.logger.error(f"Error parsing response for topic '{topic}': {str(e)}")
+            return self.handle_error(failure=scrapy.exceptions.IgnoreRequest(e))
 
-    def process_images(self, images, topic, row):
+    def check_relevance_and_download_best_image(self, image_urls, image_descriptions, topic, row):
         try:
-            image_urls, image_descriptions = zip(*images)
-            
-            # Calculate relevance scores
+            self.logger.info(f"Evaluating image relevance for topic '{topic}'")
+
+            start_time = time.time()
+
+            # Create embeddings for topic and images
             topic_embedding = self.model.encode(topic, convert_to_tensor=True)
             image_embeddings = self.model.encode(image_descriptions, convert_to_tensor=True)
             similarities = util.cos_sim(topic_embedding, image_embeddings).squeeze()
 
-            # Get the most relevant image
-            best_idx = similarities.argmax().item()
-            best_image_url = image_urls[best_idx]
-            best_similarity = similarities[best_idx].item()
+            # Find the most relevant image
+            image_similarities = [
+                (img_url, similarity.item())
+                for img_url, similarity in zip(image_urls, similarities)
+            ]
+            sorted_images = sorted(image_similarities, key=lambda x: x[1], reverse=True)
 
-            # Download the best image
-            file_path = self.get_image_file_path(best_image_url, True)
-            if not os.path.exists(file_path):
-                yield scrapy.Request(
-                    url=best_image_url,
-                    callback=self.save_image,
-                    meta={
-                        'topic': topic,
-                        'row': row,
-                        'file_path': file_path,
-                        'is_best': True
-                    },
-                    priority=2  # Highest priority for best images
-                )
+            # Most relevant image is the first one
+            best_image_url, best_similarity = sorted_images[0]
 
-            # Download other images if download_ir is True
-            if self.download_ir:
-                for idx, (img_url, similarity) in enumerate(zip(image_urls, similarities)):
-                    if idx != best_idx:  # Skip the best image as it's already being downloaded
-                        file_path = self.get_image_file_path(img_url, False)
-                        if not os.path.exists(file_path):
+            self.logger.info(f"Most relevant image for topic '{topic}': {best_image_url} (similarity: {best_similarity})")
+
+            # Log time taken for processing
+            end_time = time.time()
+            time_taken = end_time - start_time
+            self.timing_logger.info(f"Topic '{topic}' took {time_taken:.2f} sec to process image relevance")
+
+            # First check if best image exists
+            best_file_path = self.get_image_file_path(best_image_url, is_best=True)
+            if os.path.exists(best_file_path):
+                self.logger.info(f"Best image already exists: {best_file_path}")
+                # Update main CSV with existing best image and mark as scraped
+                self.update_csv_with_image_path(row, best_file_path, 'Yes')
+                
+                # If download_ir is True, process other images
+                if self.download_ir:
+                    for img_url, _ in sorted_images[1:]:  # Skip the best image
+                        file_path = self.get_image_file_path(img_url, is_best=False)
+                        if os.path.exists(file_path):
+                            self.update_ir_csv_with_image(file_path)
+                        else:
                             yield scrapy.Request(
                                 url=img_url,
                                 callback=self.save_image,
@@ -307,12 +297,36 @@ class MySpider(scrapy.Spider):
                                     'row': row,
                                     'file_path': file_path,
                                     'is_best': False
-                                },
-                                priority=0  # Lower priority for IR images
+                                }
                             )
+                return
+
+            # If best image doesn't exist, process all images as before
+            for img_url, similarity in sorted_images:
+                is_best = img_url == best_image_url
+                file_path = self.get_image_file_path(img_url, is_best)
+
+                if os.path.exists(file_path):
+                    self.logger.info(f"File already exists: {file_path}")
+                    if is_best:
+                        self.update_csv_with_image_path(row, file_path, 'Yes')
+                    elif self.download_ir:
+                        self.update_ir_csv_with_image(file_path)
+                else:
+                    if is_best or (not is_best and self.download_ir):
+                        yield scrapy.Request(
+                            url=img_url,
+                            callback=self.save_image,
+                            meta={
+                                'topic': topic,
+                                'row': row,
+                                'file_path': file_path,
+                                'is_best': is_best
+                            }
+                        )
 
         except Exception as e:
-            self.logger.error(f"Error in processing images for topic '{topic}': {str(e)}")
+            self.logger.error(f"Error in relevance check for topic '{topic}': {str(e)}")
             self.update_csv_with_image_path(row, '', 'No')
 
     def get_image_file_path(self, img_url, is_best):
@@ -354,48 +368,46 @@ class MySpider(scrapy.Spider):
             if is_best:
                 # Update main CSV file for the most relevant image
                 self.update_csv_with_image_path(row, file_path, 'Yes')
-                # Increment completed topics counter
-                self.completed_topics += 1
-                print(f"\nCompleted {self.completed_topics}/{self.total_topics} topics")
-                
-                # Check if all topics are completed
-                if self.completed_topics >= self.total_topics:
-                    print("\n=================================")
-                    print("All topics have been processed!")
-                    print("=================================\n")
-                    self.crawler.engine.close_spider(self, 'All topics completed')
-            else:
-                # Add the image to the additional images CSV
+            elif self.download_ir:
+                # Only update IR CSV if download_ir is True
                 self.update_ir_csv_with_image(file_path)
 
         except Exception as e:
             self.logger.error(f"Failed to save image for topic '{topic}': {str(e)}")
             self.update_csv_with_image_path(row, '', 'No')
-            # Still increment counter even if there was an error
-            self.completed_topics += 1
 
     def update_csv_with_image_path(self, row, image_path, scraped):
-        # Update the main CSV file with the relevant image
+        """Update the CSV file with image path and scraped status"""
         try:
+            # Read all rows
             with open(self.csv_file, mode='r', newline='') as file:
                 csv_reader = list(csv.DictReader(file))
                 fieldnames = csv_reader[0].keys()
 
             # Update the specific row
+            updated = False
             for r in csv_reader:
                 if r['Topic'] == row['Topic']:
                     r['Image Path'] = image_path
                     r['Scraped'] = scraped
+                    updated = True
                     break
 
-            # Write the updated rows back to the main CSV
+            if not updated:
+                self.logger.error(f"Could not find topic '{row['Topic']}' in CSV file")
+                return
+
+            # Write all rows back to the CSV
             with open(self.csv_file, mode='w', newline='') as file:
                 writer = csv.DictWriter(file, fieldnames=fieldnames)
                 writer.writeheader()
                 writer.writerows(csv_reader)
 
+            self.logger.info(f"Updated CSV for topic '{row['Topic']}': Image Path='{image_path}', Scraped='{scraped}'")
+
         except Exception as e:
-            self.logger.error(f"Error updating main CSV file: {str(e)}")
+            self.logger.error(f"Error updating CSV file for topic '{row['Topic']}': {str(e)}")
+            raise
 
     def update_ir_csv_with_image(self, file_path):
         """Update or create the IR CSV file with all non-relevant images"""
@@ -421,47 +433,43 @@ class MySpider(scrapy.Spider):
         except Exception as e:
             self.logger.error(f"Error updating IR CSV file: {str(e)}")
 
-    def update_performance_metrics(self, success=True):
-        """Update success/failure counts and adjust settings if needed"""
-        if success:
-            self.success_count += 1
-        else:
-            self.fail_count += 1
-
-        # Adjust settings every 100 requests or if success rate drops below 70%
-        total_requests = self.success_count + self.fail_count
-        if total_requests % 100 == 0 or (total_requests > 10 and self.success_count / total_requests < 0.7):
-            new_settings = self.adjust_scrapy_settings()
-            self.crawler.settings.update(new_settings)
-
-    def parse_search_results(self, response):
-        topic = response.meta['topic']
-        row = response.meta['row']
-
-        try:
-            # Check if response is valid
-            if response.status == 403:
-                self.logger.error(f"Access denied for topic '{topic}'. Might need authentication.")
-                self.update_csv_with_image_path(row, '', 'Auth Required')
-                return
+    def closed(self, reason):
+        """Called when the spider is closed"""
+        # Double check for any remaining unscraped topics
+        unscraped = self.get_unscraped_topics()
+        
+        if unscraped:
+            self.logger.warning(f"There are still {len(unscraped)} unscraped topics!")
+            self.logger.warning("Unscraped topics:")
+            for row in unscraped:
+                topic = row['Topic']
+                attempts = self.retry_topics.get(topic, 0)
+                self.logger.warning(f"- {topic} (Attempted {attempts} times)")
             
-            # Parse JSON response
-            try:
-                data = json.loads(response.text)
-            except json.JSONDecodeError:
-                self.logger.error(f"Invalid JSON response for topic '{topic}'")
-                self.update_csv_with_image_path(row, '', 'Invalid Response')
-                return
-
-            # Process results
-            if not data.get('data'):
-                self.logger.warning(f"No results found for topic '{topic}'")
-                self.update_csv_with_image_path(row, '', 'No Results')
-                return
-
-            # Continue with your existing processing logic
-            # ...
-
-        except Exception as e:
-            self.logger.error(f"Error processing topic '{topic}': {str(e)}")
-            self.update_csv_with_image_path(row, '', 'Error')
+            # If there are still unscraped topics, automatically retry them
+            self.logger.info("Automatically retrying unscraped topics...")
+            for row in unscraped:
+                topic = row['Topic']
+                query = "+".join(topic.lower().split())
+                api_url = f"https://www.freepik.com/api/regular/search?filters[ai-generated][only]=1&filters[content_type]=photo&locale=en&term={query}"
+                
+                # Reset retry count for this topic
+                self.retry_topics[topic] = 0
+                
+                return scrapy.Request(
+                    url=api_url,
+                    callback=self.parse,
+                    meta={
+                        'row': row, 
+                        'topic': topic,
+                        'dont_retry': False,
+                        'max_retry_times': 3
+                    },
+                    headers=self.headers,
+                    cookies=self.cookies,
+                    dont_filter=True,
+                    errback=self.handle_error,
+                    priority=30  # Highest priority for final retry requests
+                )
+        else:
+            self.logger.info("All topics have been successfully scraped!")
