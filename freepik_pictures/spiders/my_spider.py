@@ -174,18 +174,6 @@ class MySpider(scrapy.Spider):
         # Process in batches
         headers = {
             'authority': 'www.freepik.com',
-            'accept': '*/*',
-            'accept-language': 'en-US,en;q=0.9',
-            # 'authorization': f'Bearer {self.auth_token}',  # Using auth_token instead of api_key
-            'dnt': '1',
-            'referer': 'https://www.freepik.com/search',
-            'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
-            'sec-ch-ua-mobile': '?0',
-            'sec-ch-ua-platform': '"macOS"',
-            'sec-fetch-dest': 'empty',
-            'sec-fetch-mode': 'cors',
-            'sec-fetch-site': 'same-origin',
-            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
         }
 
         for i in range(0, len(rows), self.batch_size):
