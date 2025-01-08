@@ -6,5 +6,5 @@ services:
     volumes:
       - ./:/app
     working_dir: /app
-    command: scrapy crawl my_spider -a csv_file=/app/excel_files/input.csv
+    command: scrapy crawl my_spider -a csv_file=/app/excel_files/input.csv -a download_ir=false
     restart: on-failure
