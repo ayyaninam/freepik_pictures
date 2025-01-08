@@ -7,4 +7,4 @@ services:
       - ./:/app
     working_dir: /app
     command: scrapy crawl my_spider -a csv_file=/app/excel_files/input.csv
-    restart: always
+    restart: on-failure

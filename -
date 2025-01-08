@@ -1,0 +1,969 @@
+2025-01-07 23:28:56 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:28:56 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:29:00 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:29:00 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:29:03 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:29:03 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:29:08 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:29:08 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:29:15 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:29:15 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:29:23 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:29:23 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:29:33 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:29:34 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:30:29 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:30:29 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:30:29 [sentence_transformers.SentenceTransformer] INFO: Use pytorch device_name: cpu
+2025-01-07 23:30:29 [sentence_transformers.SentenceTransformer] INFO: Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-01-07 23:31:17 [my_spider] WARNING: Network speed check failed: HTTP Error 403: Forbidden
+2025-01-07 23:31:17 [my_spider] INFO: 
+            Performance Metrics:
+            - CPU Usage: 13.1%
+            - Memory Available: 6.40GB
+            - Download Speed: 50.00Mbps
+            - Success Rate: 100.00%
+            - Concurrent Requests: 10
+            - Request Delay: 0.100s
+            
+2025-01-07 23:31:17 [scrapy.addons] INFO: Enabled addons:
+[]
+2025-01-07 23:31:18 [scrapy.extensions.telnet] INFO: Telnet Password: f74b71a7b9619364
+2025-01-07 23:31:19 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2025-01-07 23:31:19 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'freepik_pictures',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': '-',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'freepik_pictures.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['freepik_pictures.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2025-01-07 23:31:19 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-01-07 23:31:19 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-01-07 23:31:19 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2025-01-07 23:31:19 [scrapy.core.engine] INFO: Spider opened
+2025-01-07 23:31:19 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-01-07 23:31:19 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-01-07 23:31:19 [my_spider] INFO: Starting to process 1 topics
+2025-01-07 23:31:19 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/scrapy/core/engine.py", line 182, in _next_request
+    request = next(self.slot.start_requests)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/freepik_pictures/spiders/my_spider.py", line 171, in start_requests
+    'authorization': f'Bearer {self.auth_token}',  # Using auth_token instead of api_key
+                               ^^^^^^^^^^^^^^^
+AttributeError: 'MySpider' object has no attribute 'auth_token'
+2025-01-07 23:31:19 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-01-07 23:31:19 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'elapsed_time_seconds': 0.063528,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 1, 7, 23, 31, 19, 521459, tzinfo=datetime.timezone.utc),
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 11,
+ 'memusage/max': 409845760,
+ 'memusage/startup': 409845760,
+ 'start_time': datetime.datetime(2025, 1, 7, 23, 31, 19, 457931, tzinfo=datetime.timezone.utc)}
+2025-01-07 23:31:19 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-01-07 23:31:32 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:31:32 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:31:32 [sentence_transformers.SentenceTransformer] INFO: Use pytorch device_name: cpu
+2025-01-07 23:31:32 [sentence_transformers.SentenceTransformer] INFO: Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-01-07 23:31:38 [my_spider] WARNING: Network speed check failed: HTTP Error 403: Forbidden
+2025-01-07 23:31:38 [my_spider] INFO: 
+            Performance Metrics:
+            - CPU Usage: 0.4%
+            - Memory Available: 6.39GB
+            - Download Speed: 50.00Mbps
+            - Success Rate: 100.00%
+            - Concurrent Requests: 10
+            - Request Delay: 0.100s
+            
+2025-01-07 23:31:38 [scrapy.addons] INFO: Enabled addons:
+[]
+2025-01-07 23:31:38 [scrapy.extensions.telnet] INFO: Telnet Password: 4c1a65d3a3c86150
+2025-01-07 23:31:38 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2025-01-07 23:31:38 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'freepik_pictures',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': '-',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'freepik_pictures.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['freepik_pictures.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2025-01-07 23:31:38 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-01-07 23:31:38 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-01-07 23:31:38 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2025-01-07 23:31:38 [scrapy.core.engine] INFO: Spider opened
+2025-01-07 23:31:38 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-01-07 23:31:38 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-01-07 23:31:38 [my_spider] INFO: Starting to process 1 topics
+2025-01-07 23:31:38 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/scrapy/core/engine.py", line 182, in _next_request
+    request = next(self.slot.start_requests)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/freepik_pictures/spiders/my_spider.py", line 171, in start_requests
+    'authorization': f'Bearer {self.auth_token}',  # Using auth_token instead of api_key
+                               ^^^^^^^^^^^^^^^
+AttributeError: 'MySpider' object has no attribute 'auth_token'
+2025-01-07 23:31:38 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-01-07 23:31:38 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'elapsed_time_seconds': 0.029541,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 1, 7, 23, 31, 38, 544457, tzinfo=datetime.timezone.utc),
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 11,
+ 'memusage/max': 407474176,
+ 'memusage/startup': 407474176,
+ 'start_time': datetime.datetime(2025, 1, 7, 23, 31, 38, 514916, tzinfo=datetime.timezone.utc)}
+2025-01-07 23:31:38 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-01-07 23:31:43 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:31:43 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:31:43 [sentence_transformers.SentenceTransformer] INFO: Use pytorch device_name: cpu
+2025-01-07 23:31:43 [sentence_transformers.SentenceTransformer] INFO: Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-01-07 23:31:48 [my_spider] WARNING: Network speed check failed: HTTP Error 403: Forbidden
+2025-01-07 23:31:48 [my_spider] INFO: 
+            Performance Metrics:
+            - CPU Usage: 13.9%
+            - Memory Available: 6.45GB
+            - Download Speed: 50.00Mbps
+            - Success Rate: 100.00%
+            - Concurrent Requests: 10
+            - Request Delay: 0.100s
+            
+2025-01-07 23:31:48 [scrapy.addons] INFO: Enabled addons:
+[]
+2025-01-07 23:31:48 [scrapy.extensions.telnet] INFO: Telnet Password: 2b6ff65a2304c470
+2025-01-07 23:31:48 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2025-01-07 23:31:48 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'freepik_pictures',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': '-',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'freepik_pictures.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['freepik_pictures.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2025-01-07 23:31:48 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-01-07 23:31:48 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-01-07 23:31:48 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2025-01-07 23:31:48 [scrapy.core.engine] INFO: Spider opened
+2025-01-07 23:31:48 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-01-07 23:31:48 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-01-07 23:31:48 [my_spider] INFO: Starting to process 1 topics
+2025-01-07 23:31:48 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/scrapy/core/engine.py", line 182, in _next_request
+    request = next(self.slot.start_requests)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/freepik_pictures/spiders/my_spider.py", line 171, in start_requests
+    'authorization': f'Bearer {self.auth_token}',  # Using auth_token instead of api_key
+                               ^^^^^^^^^^^^^^^
+AttributeError: 'MySpider' object has no attribute 'auth_token'
+2025-01-07 23:31:48 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-01-07 23:31:48 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'elapsed_time_seconds': 0.023824,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 1, 7, 23, 31, 48, 435061, tzinfo=datetime.timezone.utc),
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 11,
+ 'memusage/max': 407502848,
+ 'memusage/startup': 407502848,
+ 'start_time': datetime.datetime(2025, 1, 7, 23, 31, 48, 411237, tzinfo=datetime.timezone.utc)}
+2025-01-07 23:31:48 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-01-07 23:31:52 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:31:52 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:31:52 [sentence_transformers.SentenceTransformer] INFO: Use pytorch device_name: cpu
+2025-01-07 23:31:52 [sentence_transformers.SentenceTransformer] INFO: Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-01-07 23:31:57 [my_spider] WARNING: Network speed check failed: HTTP Error 403: Forbidden
+2025-01-07 23:31:57 [my_spider] INFO: 
+            Performance Metrics:
+            - CPU Usage: 13.8%
+            - Memory Available: 6.41GB
+            - Download Speed: 50.00Mbps
+            - Success Rate: 100.00%
+            - Concurrent Requests: 10
+            - Request Delay: 0.100s
+            
+2025-01-07 23:31:57 [scrapy.addons] INFO: Enabled addons:
+[]
+2025-01-07 23:31:57 [scrapy.extensions.telnet] INFO: Telnet Password: 8e08759d5c1f5782
+2025-01-07 23:31:57 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2025-01-07 23:31:57 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'freepik_pictures',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': '-',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'freepik_pictures.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['freepik_pictures.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2025-01-07 23:31:57 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-01-07 23:31:57 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-01-07 23:31:57 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2025-01-07 23:31:57 [scrapy.core.engine] INFO: Spider opened
+2025-01-07 23:31:57 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-01-07 23:31:57 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-01-07 23:31:57 [my_spider] INFO: Starting to process 1 topics
+2025-01-07 23:31:57 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/scrapy/core/engine.py", line 182, in _next_request
+    request = next(self.slot.start_requests)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/freepik_pictures/spiders/my_spider.py", line 171, in start_requests
+    'authorization': f'Bearer {self.auth_token}',  # Using auth_token instead of api_key
+                               ^^^^^^^^^^^^^^^
+AttributeError: 'MySpider' object has no attribute 'auth_token'
+2025-01-07 23:31:57 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-01-07 23:31:57 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'elapsed_time_seconds': 0.023715,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 1, 7, 23, 31, 57, 715424, tzinfo=datetime.timezone.utc),
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 11,
+ 'memusage/max': 407724032,
+ 'memusage/startup': 407724032,
+ 'start_time': datetime.datetime(2025, 1, 7, 23, 31, 57, 691709, tzinfo=datetime.timezone.utc)}
+2025-01-07 23:31:57 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-01-07 23:32:04 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:32:04 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:32:04 [sentence_transformers.SentenceTransformer] INFO: Use pytorch device_name: cpu
+2025-01-07 23:32:04 [sentence_transformers.SentenceTransformer] INFO: Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-01-07 23:32:08 [my_spider] WARNING: Network speed check failed: HTTP Error 403: Forbidden
+2025-01-07 23:32:08 [my_spider] INFO: 
+            Performance Metrics:
+            - CPU Usage: 14.8%
+            - Memory Available: 6.41GB
+            - Download Speed: 50.00Mbps
+            - Success Rate: 100.00%
+            - Concurrent Requests: 10
+            - Request Delay: 0.100s
+            
+2025-01-07 23:32:08 [scrapy.addons] INFO: Enabled addons:
+[]
+2025-01-07 23:32:08 [scrapy.extensions.telnet] INFO: Telnet Password: 2a40057c3b23dfd5
+2025-01-07 23:32:08 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2025-01-07 23:32:08 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'freepik_pictures',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': '-',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'freepik_pictures.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['freepik_pictures.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2025-01-07 23:32:09 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-01-07 23:32:09 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-01-07 23:32:09 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2025-01-07 23:32:09 [scrapy.core.engine] INFO: Spider opened
+2025-01-07 23:32:09 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-01-07 23:32:09 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-01-07 23:32:09 [my_spider] INFO: Starting to process 1 topics
+2025-01-07 23:32:09 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/scrapy/core/engine.py", line 182, in _next_request
+    request = next(self.slot.start_requests)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/freepik_pictures/spiders/my_spider.py", line 171, in start_requests
+    'authorization': f'Bearer {self.auth_token}',  # Using auth_token instead of api_key
+                               ^^^^^^^^^^^^^^^
+AttributeError: 'MySpider' object has no attribute 'auth_token'
+2025-01-07 23:32:09 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-01-07 23:32:09 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'elapsed_time_seconds': 0.100849,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 1, 7, 23, 32, 9, 172221, tzinfo=datetime.timezone.utc),
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 11,
+ 'memusage/max': 407416832,
+ 'memusage/startup': 407416832,
+ 'start_time': datetime.datetime(2025, 1, 7, 23, 32, 9, 71372, tzinfo=datetime.timezone.utc)}
+2025-01-07 23:32:09 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-01-07 23:32:16 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:32:16 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:32:16 [sentence_transformers.SentenceTransformer] INFO: Use pytorch device_name: cpu
+2025-01-07 23:32:16 [sentence_transformers.SentenceTransformer] INFO: Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-01-07 23:32:23 [my_spider] WARNING: Network speed check failed: HTTP Error 403: Forbidden
+2025-01-07 23:32:23 [my_spider] INFO: 
+            Performance Metrics:
+            - CPU Usage: 12.7%
+            - Memory Available: 6.35GB
+            - Download Speed: 50.00Mbps
+            - Success Rate: 100.00%
+            - Concurrent Requests: 10
+            - Request Delay: 0.100s
+            
+2025-01-07 23:32:23 [scrapy.addons] INFO: Enabled addons:
+[]
+2025-01-07 23:32:23 [scrapy.extensions.telnet] INFO: Telnet Password: 05de94e6c87bd2ed
+2025-01-07 23:32:23 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2025-01-07 23:32:23 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'freepik_pictures',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': '-',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'freepik_pictures.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['freepik_pictures.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2025-01-07 23:32:23 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-01-07 23:32:23 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-01-07 23:32:23 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2025-01-07 23:32:23 [scrapy.core.engine] INFO: Spider opened
+2025-01-07 23:32:23 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-01-07 23:32:23 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-01-07 23:32:23 [my_spider] INFO: Starting to process 1 topics
+2025-01-07 23:32:23 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/scrapy/core/engine.py", line 182, in _next_request
+    request = next(self.slot.start_requests)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/freepik_pictures/spiders/my_spider.py", line 171, in start_requests
+    'authorization': f'Bearer {self.auth_token}',  # Using auth_token instead of api_key
+                               ^^^^^^^^^^^^^^^
+AttributeError: 'MySpider' object has no attribute 'auth_token'
+2025-01-07 23:32:23 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-01-07 23:32:23 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'elapsed_time_seconds': 0.025097,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 1, 7, 23, 32, 23, 767721, tzinfo=datetime.timezone.utc),
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 11,
+ 'memusage/max': 407318528,
+ 'memusage/startup': 407318528,
+ 'start_time': datetime.datetime(2025, 1, 7, 23, 32, 23, 742624, tzinfo=datetime.timezone.utc)}
+2025-01-07 23:32:23 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-01-07 23:32:30 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:32:30 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:32:30 [sentence_transformers.SentenceTransformer] INFO: Use pytorch device_name: cpu
+2025-01-07 23:32:30 [sentence_transformers.SentenceTransformer] INFO: Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-01-07 23:32:36 [my_spider] WARNING: Network speed check failed: HTTP Error 403: Forbidden
+2025-01-07 23:32:36 [my_spider] INFO: 
+            Performance Metrics:
+            - CPU Usage: 0.3%
+            - Memory Available: 6.45GB
+            - Download Speed: 50.00Mbps
+            - Success Rate: 100.00%
+            - Concurrent Requests: 10
+            - Request Delay: 0.100s
+            
+2025-01-07 23:32:36 [scrapy.addons] INFO: Enabled addons:
+[]
+2025-01-07 23:32:36 [scrapy.extensions.telnet] INFO: Telnet Password: f7431865d33272ae
+2025-01-07 23:32:36 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2025-01-07 23:32:36 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'freepik_pictures',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': '-',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'freepik_pictures.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['freepik_pictures.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2025-01-07 23:32:36 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-01-07 23:32:36 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-01-07 23:32:36 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2025-01-07 23:32:36 [scrapy.core.engine] INFO: Spider opened
+2025-01-07 23:32:36 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-01-07 23:32:36 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-01-07 23:32:36 [my_spider] INFO: Starting to process 1 topics
+2025-01-07 23:32:36 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/scrapy/core/engine.py", line 182, in _next_request
+    request = next(self.slot.start_requests)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/freepik_pictures/spiders/my_spider.py", line 171, in start_requests
+    'authorization': f'Bearer {self.auth_token}',  # Using auth_token instead of api_key
+                               ^^^^^^^^^^^^^^^
+AttributeError: 'MySpider' object has no attribute 'auth_token'
+2025-01-07 23:32:36 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-01-07 23:32:36 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'elapsed_time_seconds': 0.049418,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 1, 7, 23, 32, 36, 995195, tzinfo=datetime.timezone.utc),
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 11,
+ 'memusage/max': 407334912,
+ 'memusage/startup': 407334912,
+ 'start_time': datetime.datetime(2025, 1, 7, 23, 32, 36, 945777, tzinfo=datetime.timezone.utc)}
+2025-01-07 23:32:36 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-01-07 23:32:42 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:32:42 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:32:42 [sentence_transformers.SentenceTransformer] INFO: Use pytorch device_name: cpu
+2025-01-07 23:32:42 [sentence_transformers.SentenceTransformer] INFO: Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-01-07 23:32:46 [my_spider] WARNING: Network speed check failed: HTTP Error 403: Forbidden
+2025-01-07 23:32:46 [my_spider] INFO: 
+            Performance Metrics:
+            - CPU Usage: 0.1%
+            - Memory Available: 6.47GB
+            - Download Speed: 50.00Mbps
+            - Success Rate: 100.00%
+            - Concurrent Requests: 10
+            - Request Delay: 0.100s
+            
+2025-01-07 23:32:47 [scrapy.addons] INFO: Enabled addons:
+[]
+2025-01-07 23:32:47 [scrapy.extensions.telnet] INFO: Telnet Password: 90407ba1bde4549c
+2025-01-07 23:32:47 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2025-01-07 23:32:47 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'freepik_pictures',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': '-',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'freepik_pictures.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['freepik_pictures.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2025-01-07 23:32:47 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-01-07 23:32:47 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-01-07 23:32:47 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2025-01-07 23:32:47 [scrapy.core.engine] INFO: Spider opened
+2025-01-07 23:32:47 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-01-07 23:32:47 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-01-07 23:32:47 [my_spider] INFO: Starting to process 1 topics
+2025-01-07 23:32:47 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/scrapy/core/engine.py", line 182, in _next_request
+    request = next(self.slot.start_requests)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/freepik_pictures/spiders/my_spider.py", line 171, in start_requests
+    'authorization': f'Bearer {self.auth_token}',  # Using auth_token instead of api_key
+                               ^^^^^^^^^^^^^^^
+AttributeError: 'MySpider' object has no attribute 'auth_token'
+2025-01-07 23:32:47 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-01-07 23:32:47 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'elapsed_time_seconds': 0.02946,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 1, 7, 23, 32, 47, 287861, tzinfo=datetime.timezone.utc),
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 11,
+ 'memusage/max': 407609344,
+ 'memusage/startup': 407609344,
+ 'start_time': datetime.datetime(2025, 1, 7, 23, 32, 47, 258401, tzinfo=datetime.timezone.utc)}
+2025-01-07 23:32:47 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-01-07 23:32:55 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:32:55 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:32:55 [sentence_transformers.SentenceTransformer] INFO: Use pytorch device_name: cpu
+2025-01-07 23:32:55 [sentence_transformers.SentenceTransformer] INFO: Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-01-07 23:33:01 [my_spider] WARNING: Network speed check failed: HTTP Error 403: Forbidden
+2025-01-07 23:33:01 [my_spider] INFO: 
+            Performance Metrics:
+            - CPU Usage: 0.0%
+            - Memory Available: 6.50GB
+            - Download Speed: 50.00Mbps
+            - Success Rate: 100.00%
+            - Concurrent Requests: 10
+            - Request Delay: 0.100s
+            
+2025-01-07 23:33:01 [scrapy.addons] INFO: Enabled addons:
+[]
+2025-01-07 23:33:01 [scrapy.extensions.telnet] INFO: Telnet Password: 95450e78d9fdb78d
+2025-01-07 23:33:01 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2025-01-07 23:33:01 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'freepik_pictures',
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': '-',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'freepik_pictures.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['freepik_pictures.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2025-01-07 23:33:01 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-01-07 23:33:01 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-01-07 23:33:01 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2025-01-07 23:33:01 [scrapy.core.engine] INFO: Spider opened
+2025-01-07 23:33:01 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-01-07 23:33:01 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-01-07 23:33:01 [my_spider] INFO: Starting to process 1 topics
+2025-01-07 23:33:01 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/scrapy/core/engine.py", line 182, in _next_request
+    request = next(self.slot.start_requests)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/freepik_pictures/spiders/my_spider.py", line 171, in start_requests
+    'authorization': f'Bearer {self.auth_token}',  # Using auth_token instead of api_key
+                               ^^^^^^^^^^^^^^^
+AttributeError: 'MySpider' object has no attribute 'auth_token'
+2025-01-07 23:33:01 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-01-07 23:33:01 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'elapsed_time_seconds': 0.027929,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 1, 7, 23, 33, 1, 644015, tzinfo=datetime.timezone.utc),
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 11,
+ 'memusage/max': 407453696,
+ 'memusage/startup': 407453696,
+ 'start_time': datetime.datetime(2025, 1, 7, 23, 33, 1, 616086, tzinfo=datetime.timezone.utc)}
+2025-01-07 23:33:01 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-01-07 23:34:37 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:34:37 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:34:37 [sentence_transformers.SentenceTransformer] INFO: Use pytorch device_name: cpu
+2025-01-07 23:34:37 [sentence_transformers.SentenceTransformer] INFO: Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-01-07 23:34:43 [my_spider] WARNING: Network speed check failed: HTTP Error 403: Forbidden
+2025-01-07 23:34:43 [my_spider] INFO: 
+            Performance Metrics:
+            - CPU Usage: 5.7%
+            - Memory Available: 6.33GB
+            - Download Speed: 50.00Mbps
+            - Success Rate: 100.00%
+            - Concurrent Requests: 10
+            - Request Delay: 0.100s
+            
+2025-01-07 23:34:43 [scrapy.addons] INFO: Enabled addons:
+[]
+2025-01-07 23:34:43 [twisted] CRITICAL: Unhandled error in Deferred:
+2025-01-07 23:34:43 [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/twisted/internet/defer.py", line 2014, in _inlineCallbacks
+    result = context.run(gen.send, result)
+  File "/usr/local/lib/python3.11/site-packages/scrapy/crawler.py", line 156, in crawl
+    self._apply_settings()
+  File "/usr/local/lib/python3.11/site-packages/scrapy/crawler.py", line 125, in _apply_settings
+    install_reactor(reactor_class, event_loop)
+  File "/usr/local/lib/python3.11/site-packages/scrapy/utils/reactor.py", line 101, in install_reactor
+    reactor_class = load_object(reactor_path)
+  File "/usr/local/lib/python3.11/site-packages/scrapy/utils/misc.py", line 79, in load_object
+    mod = import_module(module)
+  File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'twisted.internet.asyncio'
+2025-01-07 23:34:58 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:34:58 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:34:58 [sentence_transformers.SentenceTransformer] INFO: Use pytorch device_name: cpu
+2025-01-07 23:34:58 [sentence_transformers.SentenceTransformer] INFO: Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-01-07 23:35:02 [my_spider] WARNING: Network speed check failed: HTTP Error 403: Forbidden
+2025-01-07 23:35:02 [my_spider] INFO: 
+            Performance Metrics:
+            - CPU Usage: 0.0%
+            - Memory Available: 6.33GB
+            - Download Speed: 50.00Mbps
+            - Success Rate: 100.00%
+            - Concurrent Requests: 10
+            - Request Delay: 0.100s
+            
+2025-01-07 23:35:02 [scrapy.addons] INFO: Enabled addons:
+[]
+2025-01-07 23:35:02 [twisted] CRITICAL: Unhandled error in Deferred:
+2025-01-07 23:35:02 [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/twisted/internet/defer.py", line 2014, in _inlineCallbacks
+    result = context.run(gen.send, result)
+  File "/usr/local/lib/python3.11/site-packages/scrapy/crawler.py", line 156, in crawl
+    self._apply_settings()
+  File "/usr/local/lib/python3.11/site-packages/scrapy/crawler.py", line 125, in _apply_settings
+    install_reactor(reactor_class, event_loop)
+  File "/usr/local/lib/python3.11/site-packages/scrapy/utils/reactor.py", line 101, in install_reactor
+    reactor_class = load_object(reactor_path)
+  File "/usr/local/lib/python3.11/site-packages/scrapy/utils/misc.py", line 79, in load_object
+    mod = import_module(module)
+  File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'twisted.internet.asyncio'
+2025-01-07 23:35:12 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:35:12 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:35:12 [sentence_transformers.SentenceTransformer] INFO: Use pytorch device_name: cpu
+2025-01-07 23:35:12 [sentence_transformers.SentenceTransformer] INFO: Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-01-07 23:35:29 [my_spider] INFO: 
+            Performance Metrics:
+            - CPU Usage: 0.7%
+            - Memory Available: 6.40GB
+            - Download Speed: 20.87Mbps
+            - Success Rate: 100.00%
+            - Concurrent Requests: 4
+            - Request Delay: 0.100s
+            
+2025-01-07 23:35:29 [scrapy.addons] INFO: Enabled addons:
+[]
+2025-01-07 23:35:29 [twisted] CRITICAL: Unhandled error in Deferred:
+2025-01-07 23:35:29 [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/twisted/internet/defer.py", line 2014, in _inlineCallbacks
+    result = context.run(gen.send, result)
+  File "/usr/local/lib/python3.11/site-packages/scrapy/crawler.py", line 156, in crawl
+    self._apply_settings()
+  File "/usr/local/lib/python3.11/site-packages/scrapy/crawler.py", line 125, in _apply_settings
+    install_reactor(reactor_class, event_loop)
+  File "/usr/local/lib/python3.11/site-packages/scrapy/utils/reactor.py", line 101, in install_reactor
+    reactor_class = load_object(reactor_path)
+  File "/usr/local/lib/python3.11/site-packages/scrapy/utils/misc.py", line 79, in load_object
+    mod = import_module(module)
+  File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'twisted.internet.asyncio'
+2025-01-07 23:35:42 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:35:42 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:35:42 [sentence_transformers.SentenceTransformer] INFO: Use pytorch device_name: cpu
+2025-01-07 23:35:42 [sentence_transformers.SentenceTransformer] INFO: Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-01-07 23:35:59 [my_spider] INFO: 
+            Performance Metrics:
+            - CPU Usage: 0.4%
+            - Memory Available: 6.45GB
+            - Download Speed: 20.74Mbps
+            - Success Rate: 100.00%
+            - Concurrent Requests: 4
+            - Request Delay: 0.100s
+            
+2025-01-07 23:35:59 [scrapy.addons] INFO: Enabled addons:
+[]
+2025-01-07 23:35:59 [scrapy.extensions.telnet] INFO: Telnet Password: ca0708e6f1c03456
+2025-01-07 23:35:59 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2025-01-07 23:35:59 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'freepik_pictures',
+ 'CONCURRENT_REQUESTS': 32,
+ 'DOWNLOAD_DELAY': 0.1,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'HTTPCACHE_ENABLED': True,
+ 'LOG_FILE': '-',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'freepik_pictures.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['freepik_pictures.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.epollreactor.EPollReactor'}
+2025-01-07 23:35:59 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats',
+ 'scrapy.downloadermiddlewares.httpcache.HttpCacheMiddleware']
+2025-01-07 23:35:59 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-01-07 23:35:59 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2025-01-07 23:35:59 [scrapy.core.engine] INFO: Spider opened
+2025-01-07 23:35:59 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-01-07 23:35:59 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-01-07 23:35:59 [my_spider] INFO: Starting to process 1 topics
+2025-01-07 23:35:59 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/scrapy/core/engine.py", line 182, in _next_request
+    request = next(self.slot.start_requests)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/freepik_pictures/spiders/my_spider.py", line 171, in start_requests
+    'authorization': f'Bearer {self.auth_token}',  # Using auth_token instead of api_key
+                               ^^^^^^^^^^^^^^^
+AttributeError: 'MySpider' object has no attribute 'auth_token'
+2025-01-07 23:35:59 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-01-07 23:35:59 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'elapsed_time_seconds': 0.021315,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 1, 7, 23, 35, 59, 456190, tzinfo=datetime.timezone.utc),
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 11,
+ 'memusage/max': 409890816,
+ 'memusage/startup': 409890816,
+ 'start_time': datetime.datetime(2025, 1, 7, 23, 35, 59, 434875, tzinfo=datetime.timezone.utc)}
+2025-01-07 23:35:59 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-01-07 23:41:09 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: freepik_pictures)
+2025-01-07 23:41:09 [scrapy.utils.log] INFO: Versions: lxml 5.3.0.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.10 (main, Dec  3 2024, 09:27:10) [GCC 12.2.0], pyOpenSSL 24.2.1 (OpenSSL 3.3.2 3 Sep 2024), cryptography 43.0.1, Platform Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+2025-01-07 23:41:09 [sentence_transformers.SentenceTransformer] INFO: Use pytorch device_name: cpu
+2025-01-07 23:41:09 [sentence_transformers.SentenceTransformer] INFO: Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-01-07 23:41:26 [my_spider] INFO: 
+            Performance Metrics:
+            - CPU Usage: 10.2%
+            - Memory Available: 6.34GB
+            - Download Speed: 20.61Mbps
+            - Success Rate: 100.00%
+            - Concurrent Requests: 4
+            - Request Delay: 0.100s
+            
+2025-01-07 23:41:26 [scrapy.addons] INFO: Enabled addons:
+[]
+2025-01-07 23:41:26 [scrapy.extensions.telnet] INFO: Telnet Password: a93eee467d3839f8
+2025-01-07 23:41:26 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2025-01-07 23:41:26 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'freepik_pictures',
+ 'CONCURRENT_REQUESTS': 32,
+ 'DOWNLOAD_DELAY': 0.1,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'HTTPCACHE_ENABLED': True,
+ 'LOG_FILE': '-',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'freepik_pictures.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['freepik_pictures.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.epollreactor.EPollReactor'}
+2025-01-07 23:41:27 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats',
+ 'scrapy.downloadermiddlewares.httpcache.HttpCacheMiddleware']
+2025-01-07 23:41:27 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-01-07 23:41:27 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2025-01-07 23:41:27 [scrapy.core.engine] INFO: Spider opened
+2025-01-07 23:41:27 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-01-07 23:41:27 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-01-07 23:41:27 [my_spider] INFO: Starting to process 1 topics
+2025-01-07 23:41:27 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/scrapy/core/engine.py", line 182, in _next_request
+    request = next(self.slot.start_requests)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/freepik_pictures/spiders/my_spider.py", line 171, in start_requests
+    'authorization': f'Bearer {self.auth_token}',  # Using auth_token instead of api_key
+                               ^^^^^^^^^^^^^^^
+AttributeError: 'MySpider' object has no attribute 'auth_token'
+2025-01-07 23:41:27 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-01-07 23:41:27 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'elapsed_time_seconds': 0.051697,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 1, 7, 23, 41, 27, 273412, tzinfo=datetime.timezone.utc),
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 11,
+ 'memusage/max': 411930624,
+ 'memusage/startup': 411930624,
+ 'start_time': datetime.datetime(2025, 1, 7, 23, 41, 27, 221715, tzinfo=datetime.timezone.utc)}
+2025-01-07 23:41:27 [scrapy.core.engine] INFO: Spider closed (finished)
